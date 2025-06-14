@@ -1,0 +1,166 @@
+﻿1
+#Importar librerías
+import os
+#Limpia pantalla
+os.system("cls")
+#Defino función factorial
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)   
+# Ingreso de dato
+dato = int(input("Ingrese un número :"))
+
+for i in range(1, dato + 1):
+    print(f"{i}! = {factorial(i)}")
+
+#Imprime por pantalla el resultado final
+
+print(f"el factorial de {dato} es {factorial(dato)}")
+
+2
+#Importar librerías
+import os
+#Limpia pantalla
+os.system("cls")
+#Defino función de la serie de Fibonacci
+def fibonacci(n):
+    #Calcula el valor de Fibonacci en la posición n usando recursividad.
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+# Solicita al usuario una posición límite
+dato = int(input("Ingrese una posición (entero no negativo): "))
+
+print(f"\nSerie de Fibonacci hasta la posición {dato}:\n")
+
+#Muestra la serie completa
+for i in range(dato + 1):
+    print(f"F({i}) = {fibonacci(i)}")
+
+3
+#Importar librerías
+import os
+#Limpia pantalla
+os.system("cls")
+#Defino función potencia
+def potencia(base, exponente):
+    #Calcula la potencia de 'base' elevada a 'exponente' de forma recursiva
+    if exponente == 0:
+        return 1
+    else:
+        return base * potencia(base, exponente - 1)
+
+# Ingreso base y exponente
+base = int(input("Ingrese la base: "))
+exponente = int(input("Ingrese el exponente (entero no negativo): "))
+#Muestra por pantalla el resultado
+resultado = potencia(base, exponente)
+print(f"\n{base}^{exponente} = {resultado}")
+
+4
+#Importar librerías
+import os
+#Limpia pantalla
+os.system("cls")
+#Defino función precursiva
+def decimal_a_binario(n):
+    #Convierte un número entero positivo a binario usando recursividad.
+    if n == 0:
+        return ""
+    else:
+        return decimal_a_binario(n // 2) + str(n % 2)
+
+# Solicita al usuario un número entero positivo
+numero = int(input("Ingrese un número entero positivo: "))
+
+# Caso especial para el 0
+if numero == 0:
+    binario = "0"
+else:
+    binario = decimal_a_binario(numero)
+#Muestra por pantalla el resultado
+print(f"El número {numero} en binario es: {binario}")
+
+5
+#Importar librerías
+import os
+#Limpia pantalla
+os.system("cls")
+#Defino función precursiva
+def es_palindromo(palabra):
+    #Verifica recursivamente si una palabra es un palíndromo.
+    if len(palabra) <= 1:
+        return True
+    if palabra[0] != palabra[-1]:
+        return False
+    return es_palindromo(palabra[1:-1])
+
+# Ingreso texto de prueba
+texto = input("Ingrese una palabra sin espacios ni tildes: ").lower()
+
+#Muestro por pantalla los resultados
+if es_palindromo(texto):
+    print(f'"{texto}" es un palíndromo.')
+else:
+    print(f'"{texto}" no es un palíndromo.')
+
+6
+#Importar librerías
+import os
+#Limpia pantalla
+os.system("cls")
+#Defino función precursiva
+def suma_digitos(n):
+    #Calcula recursivamente la suma de los dígitos de un número entero positivo.
+    if n < 10:
+        return n
+    else:
+        return (n % 10) + suma_digitos(n // 10)
+#Ingreso número positivo por consola        
+dato = int(input("Ingrese un número :"))
+#Muestro resultado por pantalla
+print(f"La suma de los digitos del número {dato} es {suma_digitos(dato)}.")
+
+7
+#Importar librerías
+import os
+#Limpia pantalla
+os.system("cls")
+#Defino función precursiva
+def contar_bloques(n):
+    #Devuelve el total de bloques necesarios para construir la pirámide.
+    if n == 1:
+        return 1
+    else:
+        return n + contar_bloques(n - 1) 
+#Cantidad de bloques en la base
+dato = int(input("Ingrese la cantidad de bloques en la base :"))
+#Resultado por pantalla
+print(f"Si colocas {dato} bloques en la base, necesitarás {contar_bloques(dato)} en total para terminar la pirámide")
+
+8
+#Importar librerías
+import os
+#Limpia pantalla
+os.system("cls")
+#Defino función precursiva
+def contar_digito(numero, digito):
+    #Cuenta recursivamente cuántas veces aparece un dígito en un número.
+    if numero == 0:
+        return 0
+    else:
+        ultimo = numero % 10
+        if ultimo == digito:
+            return 1 + contar_digito(numero // 10, digito)
+        else:
+            return contar_digito(numero // 10, digito)
+#Datos ingresados 
+dato1= int(input("Ingrese un número cualquiera : "))
+dato2= int(input("Ingrese el digito que quiere encontrar: "))
+#Resultados mostrados por pantalla
+print(f"El núemro ingresado es {dato1} el número {dato2}, fue encontrado {contar_digito(dato1, dato2)} veces")
